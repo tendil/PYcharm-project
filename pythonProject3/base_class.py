@@ -47,7 +47,7 @@ class Person:
         print('Разговаривает')
 
     def give_up_my_job(self):
-        self = 0
+        self.__class__ = Objects
         # self = Person()
 
     @property
