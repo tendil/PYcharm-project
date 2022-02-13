@@ -1,0 +1,15 @@
+0. Person
+
+1. Directory
+
+2. Sales_Manager
+
+3. Event_Manager
+
+4. Cook
+
+5. Technician
+
+6. Cleaning_master
+def clin_up_your_danjeon():
+    pass
