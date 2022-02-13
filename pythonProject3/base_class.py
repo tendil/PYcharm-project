@@ -1,15 +1,21 @@
-from random import choice
+
+class Method():
+    @classmethod
+    def skills_access(cls, self):
+        pass
+
+    @classmethod
+    def job_access(cls, Name):
+        if Name._job == cls.__name__:
+            return True
+        else:
+            return False
 
 
 class Person:
     # * - все параметры по правую сторону будут исключительно именнованными
-    def __init__(self, *,
-                 growth: float = 160.0,
-                 wight: float = 60,
-                 hair_color: str = "brown",
-                 race: str = 'white',
-                 saving: int = 500
-                 ):
+    def __init__(self, *, growth: float = 160.0, wight: float = 60.0, hair_color: str = "brown", race: str = 'white',
+                 saving: int = 500):
         self._growth = growth  # Рост
         self._wight = wight  # Вес
         self._hair_color = hair_color  # Цвет глаз
@@ -17,23 +23,19 @@ class Person:
         self._thirsty = 0  # Жажда
         self._race = race  # Человек True or Black
         self._saving = saving
-        self._saving = 0
         self._job = None
 
     def who_i_am(self):
         if self._race == 'black':
             print('Ты просто нигга.')
         else:
-            print(f'Рост {self._growth},'
-                  f'вес {self._wight},'
-                  f'раса {self._race},'
-                  f'цвет волос {self._hair_color},'
-                  f'сбережения {self._saving}.'
-                  )
+            print(f'Рост {self._growth}, вес {self._wight}, раса {self._race}, цвет волос {self._hair_color}.')
+
     def my_job(self):
-        print(f'Я {self._job}')
+        return f'Я {self._job}'
+
     def phis_stats(self):
-        print(f'Жажда: {self._thirsty},  голод: {self._satiety}')
+        return f'Жажда: {self._thirsty},  голод: {self._satiety}'
 
     def get_eating(self):
         self._satiety += 25
@@ -46,90 +48,131 @@ class Person:
     def to_tolking(self):
         print('Разговаривает')
 
-    def give_up_my_job(self):
-        self.__class__ = Objects
-        # self = Person()
-
     @property
     def saving(self):
-        print(f'У меня в копилке: ${self._saving}')
-        return
+        return f'У меня в копилке: ${self._saving}'
 
 
-class Cleaning_Master(Person):
+
+
+class Cleaning_Master(Method):
     def __init__(self):
-        Person.__init__(self)
-        self._race = 'black'
-        self._saving = -(choice(range(300, 500)))
-        self._job = 'Cleaning Master'
+        pass
+
 
     def clean_up(self):  # Убраться
         print('*Вытираю лужу*')
 
 
-class Technician(Person):
+
+
+class Technician(Method):
     def __init__(self):
-        Person.__init__(self)
-        self._race = choice(['black', 'white'])
-        self._job = 'Technican'
+        pass
 
     def to_repair(self):
-        print('*Чиню поломку*')
+        if Technician.job_access(self):
+            print('*Чиню поломку*')
+        else:
+            ('Фу, я ведь не чёерный, чтобы это делать')
 
     def washing(self):
-        print('Смываю грязь, оттираю мазуту')
+        if Technician.job_access(self):
+            print('Смываю грязь, оттираю мазуту')
+        else:
+            ('Фу, я ведь не чёерный, чтобы это делать')
 
 
-class Cook(Person):
+
+
+class Cook(Method):
     def __init__(self):
-        Person.__init__(self)
-        self._satiety = 200
-        self._job = 'Cook'
+        pass
 
     def cooking(self):
         print('*Готовлю суп*')
 
     def cleaning_workplace(self):  # уборка рабочего места
-        print('*Привожу рабочее место в порядок*')
+        if Cook.job_access(self):
+            print('*Привожу рабочее место в порядок*')
+        else:
+            print('Я ведь не повар')
 
     def cake(self):
-        print('*Готовлю торт к выдаче*')
+        if Cook.job_access(self):
+            print('*Готовлю торт к выдаче*')
+        else:
+            print('Я ведь не повар')
 
 
-class Sales_Manager(Person):
+
+
+class Sales_Manager(Method):
     def __init__(self):
-        Person.__init__(self)
-        self._saving = choice(range(1000, 2000))
-        self._job = 'Sales Manager'
+        pass
 
     def sell_ivent(self):
-        print('*Почти продал человеку мероприятие!*')
+        if Sales_Manager.job_access(self):
+            print('*Почти продал человеку мероприятие!*')
+        else:
+            print('Я не занимаю нужную должность')
 
     def base_clients(self):
-        print('*Обновляю базу клиентов*')
+        if Sales_Manager.job_access(self):
+            print('*Обновляю базу клиентов*')
+        else:
+            print('Я не занимаю нужную должность')
 
     def compiling_a_report(self):
-        print('*Составляю отчёт по итогу мероприятия*')
+        if Sales_Manager.job_access(self):
+            print('*Составляю отчёт по итогу мероприятия*')
+        else:
+            print('Я не занимаю нужную должность')
 
     def selection_of_premises(self):
-        print('*Подбираю крутую локацию для бомбического мероприятия*')
+        if Sales_Manager.job_access(self):
+            print('*Подбираю крутую локацию для бомбического мероприятия*')
+        else:
+            print('Я не занимаю нужную должность')
 
 
-class Event_Manager(Person):
+
+
+class Event_Manager(Method):
     def __init__(self):
-        Person.__init__(self)
-        self._saving = choice(range(1500, 3000))
-        self._job = 'Event Manager'
+        pass
 
     def recruitment(self):
-        print('*Набираю персонал для мероприятия*')
+        if Event_Manager.job_access(self):
+            print('*Набираю персонал для мероприятия*')
+        else:
+            print('Но я ведь не работаю как Event Manager')
 
 
-class Directory(Event_Manager, Sales_Manager):
+
+
+class Directory(Method):
+    def __init__(self):
+        pass
+
+    def pay_a_salary(self):
+        if Directory.job_access(self):
+            print('*Выдаю зарплату за февраль месяц*')
+        else:
+            print('*Нет, не буду это делать, я за эту работу плачу людям деньги!!!*')
+
+
+
+
+
+
+class Creachars(Person, Directory, Event_Manager, Sales_Manager, Cook, Technician, Cleaning_Master):
     def __init__(self):
         Person.__init__(self)
-        self._saving = choice(range(2000, 40000))
-        self._job = 'Director'
 
-    def person_get_up(self, person):
-        del person
+    def get_skils(self, NameSkils: ['Directory', 'Event_Manager', 'Sales_Manager', 'Cook', 'Technician', 'Cleaning_Master']):
+        NameSkils.__init__(self)
+
+    def get_work(self,
+                 NameJob : ['Directory', 'Event_Manager', 'Sales_Manager', 'Cook', 'Technician', 'Cleaning_Master']):
+        self._job = NameJob
