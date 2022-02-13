@@ -1,4 +1,3 @@
-
 class Method():
     @classmethod
     def skills_access(cls, self):
@@ -8,7 +7,7 @@ class Method():
     def job_access(cls, Name):
         if Name._job == cls.__name__:
             return True
-        else:
+        else: 
             return False
 
 
@@ -16,14 +15,14 @@ class Person:
     # * - все параметры по правую сторону будут исключительно именнованными
     def __init__(self, *, growth: float = 160.0, wight: float = 60.0, hair_color: str = "brown", race: str = 'white',
                  saving: int = 500):
-        self._growth = growth  # Рост
-        self._wight = wight  # Вес
-        self._hair_color = hair_color  # Цвет глаз
-        self._satiety = 100  # Сытость
-        self._thirsty = 0  # Жажда
-        self._race = race  # Человек True or Black
-        self._saving = saving
-        self._job = None
+        self._growth = growth                           # Рост
+        self._wight = wight                             # Вес
+        self._hair_color = hair_color                   # Цвет глаз
+        self._satiety = 100                             # Сытость
+        self._thirsty = 0                               # Жажда
+        self._race = race                               # Человек True or Black
+        self._saving = saving                           # Сбережения
+        self._job = None                                # Должность
 
     def who_i_am(self):
         if self._race == 'black':
@@ -53,17 +52,12 @@ class Person:
         return f'У меня в копилке: ${self._saving}'
 
 
-
-
 class Cleaning_Master(Method):
     def __init__(self):
         pass
 
-
-    def clean_up(self):  # Убраться
+    def clean_up(self):             # Убраться
         print('*Вытираю лужу*')
-
-
 
 
 class Technician(Method):
@@ -74,15 +68,13 @@ class Technician(Method):
         if Technician.job_access(self):
             print('*Чиню поломку*')
         else:
-            ('Фу, я ведь не чёерный, чтобы это делать')
+            ('Фу, я ведь не чёрный, чтобы это делать(!')
 
     def washing(self):
         if Technician.job_access(self):
             print('Смываю грязь, оттираю мазуту')
         else:
-            ('Фу, я ведь не чёерный, чтобы это делать')
-
-
+            ('Фу, я ведь не чёрный, чтобы это делать!(')
 
 
 class Cook(Method):
@@ -92,19 +84,17 @@ class Cook(Method):
     def cooking(self):
         print('*Готовлю суп*')
 
-    def cleaning_workplace(self):  # уборка рабочего места
+    def cleaning_workplace(self):                       # уборка рабочего места
         if Cook.job_access(self):
             print('*Привожу рабочее место в порядок*')
         else:
-            print('Я ведь не повар')
+            print('Почему я? Я ведь даже не повар...')
 
     def cake(self):
         if Cook.job_access(self):
             print('*Готовлю торт к выдаче*')
         else:
-            print('Я ведь не повар')
-
-
+            print('Почему я? Я ведь даже не повар...')
 
 
 class Sales_Manager(Method):
@@ -136,8 +126,6 @@ class Sales_Manager(Method):
             print('Я не занимаю нужную должность')
 
 
-
-
 class Event_Manager(Method):
     def __init__(self):
         pass
@@ -149,8 +137,6 @@ class Event_Manager(Method):
             print('Но я ведь не работаю как Event Manager')
 
 
-
-
 class Directory(Method):
     def __init__(self):
         pass
@@ -160,10 +146,6 @@ class Directory(Method):
             print('*Выдаю зарплату за февраль месяц*')
         else:
             print('*Нет, не буду это делать, я за эту работу плачу людям деньги!!!*')
-
-
-
-
 
 
 class Creachars(Person, Directory, Event_Manager, Sales_Manager, Cook, Technician, Cleaning_Master):
