@@ -13,8 +13,15 @@ class Method():
 
 class Person:
     # * - все параметры по правую сторону будут исключительно именнованными
-    def __init__(self, *, growth: float = 160.0, wight: float = 60.0, hair_color: str = "brown", race: str = 'white',
-                 saving: int = 500):
+    def __init__(self,
+                 *, 
+                 growth: float = 160.0,
+                 wight: float = 60.0,
+                 hair_color: str = 'brown',
+                 race: str = 'white',
+                 saving: int = 500
+                 ):
+        
         self._growth = growth                           # Рост
         self._wight = wight                             # Вес
         self._hair_color = hair_color                   # Цвет глаз
@@ -23,8 +30,7 @@ class Person:
         self._race = race                               # Человек True or Black
         self._saving = saving                           # Сбережения
         self._job = None                                # Должность
-
-    def who_i_am(self):
+    def who_i_am(self):                                 # Кто я такой?
         if self._race == 'black':
             print('Ты просто нигга.')
         else:
@@ -152,9 +158,11 @@ class Creachars(Person, Directory, Event_Manager, Sales_Manager, Cook, Technicia
     def __init__(self):
         Person.__init__(self)
 
-    def get_skils(self, NameSkils: ['Directory', 'Event_Manager', 'Sales_Manager', 'Cook', 'Technician', 'Cleaning_Master']):
+    def get_skils(self, 
+                  NameSkils: ['Directory', 'Event_Manager', 'Sales_Manager', 'Cook', 'Technician', 'Cleaning_Master']):
         NameSkils.__init__(self)
 
-    def get_work(self,
+    def get_work(self, 
                  NameJob : ['Directory', 'Event_Manager', 'Sales_Manager', 'Cook', 'Technician', 'Cleaning_Master']):
         self._job = NameJob
+
