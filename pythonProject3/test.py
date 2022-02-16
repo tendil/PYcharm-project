@@ -1,9 +1,6 @@
 from base_class import *
 
-#PE = Creachars()
+PE = Creachars()
 
-#PE.get_work('Cleaning_Master')
-
-#print(PE.my_job())
-
+PE.who_i_am()
 

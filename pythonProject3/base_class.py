@@ -74,13 +74,13 @@ class Technician(Method):
         if Technician.job_access(self):
             print('*Чиню поломку*')
         else:
-            ('Фу, я ведь не чёрный, чтобы это делать(!')
+            print('Фу, я ведь не чёрный, чтобы это делать(!')
 
     def washing(self):
         if Technician.job_access(self):
             print('Смываю грязь, оттираю мазуту')
         else:
-            ('Фу, я ведь не чёрный, чтобы это делать!(')
+            print('Фу, я ведь не чёрный, чтобы это делать!(')
 
 
 class Cook(Method):
@@ -158,11 +158,21 @@ class Creachars(Person, Directory, Event_Manager, Sales_Manager, Cook, Technicia
     def __init__(self):
         Person.__init__(self)
 
-    def get_skils(self, 
-                  NameSkils: ['Directory', 'Event_Manager', 'Sales_Manager', 'Cook', 'Technician', 'Cleaning_Master']):
+    def get_skils(self, NameSkils):
         NameSkils.__init__(self)
 
-    def get_work(self, 
-                 NameJob : ['Directory', 'Event_Manager', 'Sales_Manager', 'Cook', 'Technician', 'Cleaning_Master']):
+    def get_work(self, NameJob : str):
         self._job = NameJob
+
+
+
+
+
+
+
+
+
+
+
+
 
